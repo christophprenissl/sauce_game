@@ -11,4 +11,5 @@ func _process(delta):
 	position.x += speed * delta
 	
 func _on_Dish_area_entered(area: Area2D):
-	queue_free()
+	if area.collision_layer == 2:
+		queue_free()
