@@ -95,6 +95,11 @@ sauce_d={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="dish"
+2d_physics/layer_2="end_of_line"
+
 [physics]
 
 common/enable_pause_aware_picking=true

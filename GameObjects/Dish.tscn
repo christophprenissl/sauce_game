@@ -53,6 +53,7 @@ animations = [ {
 } ]
 
 [node name="Dish" type="Area2D"]
+collision_mask = 2
 script = ExtResource( 2 )
 speed = 120
 
@@ -72,3 +73,5 @@ modulate = Color( 0.933333, 0.34902, 0.34902, 1 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 6 )
 animation = "idle"
+
+[connection signal="area_entered" from="." to="." method="_on_Dish_area_entered"]
