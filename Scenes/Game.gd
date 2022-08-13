@@ -21,6 +21,8 @@ export var sauce_color_d: Color = Color.white
 export (Array, int) var speed_levels
 export var seconds_till_speed_changes: int = 10
 
+signal speed_set(value)
+
 var time = 0
 var speed_level = 0
 
@@ -114,6 +116,7 @@ func play_music(lvl):
 
 func set_speed(value: int):
 	production_line.speed = value
+	emit_signal("speed_set", value)
 
 
 func _on_EggBreaker_animation_finished():
@@ -127,3 +130,4 @@ func _on_without_sauce_served():
 	mood -= 1
 	mood_meter.set_mood(mood)
 	set_chef_mood(mood)
+

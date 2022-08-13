@@ -19,7 +19,6 @@ export var points_neg = 5
 export var speed = 100
 var paused = false
 
-signal speed_set(value)
 signal without_sauce_served
 
 func _ready():
