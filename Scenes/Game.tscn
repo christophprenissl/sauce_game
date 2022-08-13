@@ -108,6 +108,7 @@ script = ExtResource( 6 )
 sauce_color_a = Color( 0.854902, 0.0627451, 0.0627451, 1 )
 sauce_color_s = Color( 0.858824, 0.74902, 0.027451, 1 )
 sauce_color_d = Color( 0.945098, 0.921569, 0.870588, 1 )
+speed_levels = [ 100, 250, 500, 1000 ]
 
 [node name="Background" type="AnimatedSprite" parent="."]
 position = Vector2( 971, 547.5 )
@@ -123,7 +124,6 @@ unique_name_in_owner = true
 position = Vector2( 961, 773 )
 frames = SubResource( 2 )
 animation = "moving"
-frame = 5
 playing = true
 script = ExtResource( 3 )
 spawn_rate = 200
@@ -154,6 +154,7 @@ position = Vector2( 1462, 200.688 )
 scale = Vector2( 0.347163, 0.35108 )
 frames = SubResource( 8 )
 animation = "idle"
+frame = 1
 playing = true
 script = ExtResource( 5 )
 

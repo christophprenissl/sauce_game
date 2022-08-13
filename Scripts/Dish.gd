@@ -5,6 +5,7 @@ onready var sauce2 = $"%Sauce2"
 onready var sauce3 = $"%Sauce3"
 
 export var speed = 100
+signal speed_set(value)
 
 func _process(delta):
 	position.x += speed * delta
@@ -28,3 +29,7 @@ func add_sauce(sauce_color : Color):
 	if !sauce3.visible:
 		sauce3.set_modulate(sauce_color)
 		sauce3.set_visible(true)
+
+
+func _on_Dish_speed_set(value):
+	speed = value
