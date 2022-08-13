@@ -62,6 +62,8 @@ speed = 120
 position = Vector2( 0, -500 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 1
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -250 )
@@ -69,9 +71,11 @@ shape = SubResource( 2 )
 
 [node name="Sauce" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
+visible = false
 modulate = Color( 0.933333, 0.34902, 0.34902, 1 )
 position = Vector2( 0, -500 )
 frames = SubResource( 6 )
 animation = "idle"
+playing = true
 
 [connection signal="area_entered" from="." to="." method="_on_Dish_area_entered"]

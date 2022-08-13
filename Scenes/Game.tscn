@@ -50,10 +50,16 @@ collision_layer = 4
 [node name="CollisionShape" type="CollisionShape2D" parent="ProductionLine/ProductionArea"]
 position = Vector2( 0.456239, 0 )
 shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ConsumptionArea" type="Area2D" parent="ProductionLine"]
+position = Vector2( 37.6313, -71.2955 )
 collision_layer = 2
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ProductionLine/ConsumptionArea"]
-position = Vector2( 34.5922, -40.7876 )
 shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
