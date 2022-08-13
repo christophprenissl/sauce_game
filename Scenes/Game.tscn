@@ -21,7 +21,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 1.6108, 22.9404 )
+extents = Vector2( 2.06704, 22.9404 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2.54749, 42.1141 )
@@ -40,14 +40,15 @@ position = Vector2( 963, 700 )
 scale = Vector2( 33.5625, 3.01562 )
 frames = SubResource( 2 )
 script = ExtResource( 3 )
+spawn_rate = 200
 
 [node name="ProductionArea" type="Area2D" parent="ProductionLine"]
 unique_name_in_owner = true
-position = Vector2( -30, -50 )
+position = Vector2( -35, -32 )
 collision_layer = 4
 
 [node name="CollisionShape" type="CollisionShape2D" parent="ProductionLine/ProductionArea"]
-position = Vector2( -0.210428, 9.48444 )
+position = Vector2( 0.456239, 0 )
 shape = SubResource( 4 )
 
 [node name="ConsumptionArea" type="Area2D" parent="ProductionLine"]

@@ -1,11 +1,13 @@
 extends AnimatedSprite
 
+export var spawn_rate = 100
+
 onready var game = $".."
 onready var dish = load("res://GameObjects/Dish.tscn")
 onready var production_area = $"ProductionArea"
 
 func _process(delta):
-	var rand_num = randi() % 100
+	var rand_num = randi() % spawn_rate
 	
 	if rand_num == 0 && production_area.get_overlapping_areas().size() == 0:
 		var production_pos = production_area.global_position
