@@ -122,3 +122,8 @@ func _on_EggBreaker_animation_finished():
 	paused = false
 	dishes.start_dishes()
 	production_line.set_paused(false)
+
+func _on_without_sauce_served():
+	mood -= 1
+	mood_meter.set_mood(mood)
+	set_chef_mood(mood)

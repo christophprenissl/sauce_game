@@ -20,6 +20,7 @@ export var speed = 100
 var paused = false
 
 signal speed_set(value)
+signal without_sauce_served
 
 func _ready():
 	sauce_indicator1.color = colora
@@ -43,6 +44,7 @@ func _process(delta):
 	
 func _on_Dish_area_entered(area: Area2D):
 	if area.collision_layer == 2:
+		emit_signal("without_sauce_served")
 		queue_free()
 
 
