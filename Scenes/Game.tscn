@@ -406,8 +406,6 @@ sauce_color_d = Color( 0.956863, 0.662745, 0.027451, 1 )
 speed_levels = [ 100, 250, 500 ]
 seconds_till_speed_changes = 30
 
-[node name="ColorModulate" type="CanvasModulate" parent="."]
-
 [node name="Background" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 971, 547.5 )
@@ -426,7 +424,7 @@ position = Vector2( 4, 79 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 30 )
 animation = "neutral"
-frame = 2
+frame = 1
 playing = true
 
 [node name="MusicPlayerLvl1" type="AudioStreamPlayer" parent="."]
@@ -446,7 +444,7 @@ unique_name_in_owner = true
 position = Vector2( 961, 773 )
 frames = SubResource( 2 )
 animation = "moving"
-frame = 3
+frame = 5
 playing = true
 script = ExtResource( 3 )
 spawn_rate = 200
@@ -467,6 +465,7 @@ __meta__ = {
 position = Vector2( -3, -62 )
 frames = SubResource( 21 )
 animation = "idle"
+frame = 2
 playing = true
 
 [node name="ConsumptionArea" type="Area2D" parent="ProductionLine"]
@@ -483,7 +482,6 @@ position = Vector2( 1462, 200.688 )
 scale = Vector2( 0.347163, 0.35108 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 1
 playing = true
 script = ExtResource( 5 )
 
@@ -506,7 +504,7 @@ unique_name_in_owner = true
 position = Vector2( 1011, 131 )
 frames = SubResource( 25 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 script = ExtResource( 11 )
 

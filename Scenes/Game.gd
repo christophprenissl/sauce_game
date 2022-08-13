@@ -4,7 +4,6 @@ onready var music_player_lvl1 = $"%MusicPlayerLvl1"
 onready var music_player_lvl2 = $"%MusicPlayerLvl2"
 onready var music_player_lvl3 = $"%MusicPlayerLvl3"
 
-onready var color_modulate = $ColorModulate
 onready var eggs = $"%Eggs"
 onready var dishes = $"%Dishes"
 onready var egg_breaker = $"%EggBreaker"
@@ -90,7 +89,6 @@ func remove_egg():
 func break_egg():
 	egg_breaker.visible = true
 	egg_breaker.playing = true
-	color_modulate.color = Color(0.25, 0.25, 0.25, 1)
 	paused = true
 	dishes.pause_dishes()
 	production_line.set_paused(true)
@@ -118,7 +116,6 @@ func set_speed(value: int):
 func _on_EggBreaker_animation_finished():
 	egg_breaker.frame = 0
 	egg_breaker.visible = false
-	color_modulate.color = Color.white
 	paused = false
 	dishes.start_dishes()
 	production_line.set_paused(false)
