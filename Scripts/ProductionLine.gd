@@ -20,6 +20,10 @@ func _process(delta):
 	if rand_num == 0 && production_area.get_overlapping_areas().size() == 0:
 		var production_pos = production_area.global_position
 		var dish_instance = dish.instance()
+		
+		var rand_dish = randi() % 2
+		dish_instance.set_dish_type(rand_dish)
+		
 		dish_instance.connect("without_sauce_served", game, "_on_without_sauce_served")
 		game.connect("speed_set", dish_instance, "_on_Dish_speed_set")
 		
