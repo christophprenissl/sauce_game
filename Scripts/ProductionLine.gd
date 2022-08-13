@@ -4,10 +4,16 @@ export var spawn_rate = 100
 export var speed = 100
 
 onready var game = $".."
+onready var dishes = $"%Dishes"
 onready var dish = load("res://GameObjects/Dish.tscn")
 onready var production_area = $"ProductionArea"
 
+var paused = false
+
 func _process(delta):
+	if paused:
+		return
+		
 	update_speed_scale()
 	var rand_num = randi() % spawn_rate
 	
@@ -30,10 +36,12 @@ func _process(delta):
 				
 		
 		dish_instance.speed = speed
-		game.add_child(dish_instance)
+		dishes.add_child(dish_instance)
 		dish_instance.global_position = production_pos
 	
 
+func set_paused(value):
+	paused = value
 
 func update_speed_scale():
 	speed_scale = 0.008 * speed

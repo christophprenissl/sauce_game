@@ -17,6 +17,8 @@ var sauce_indicators = [-1,-1,-1]
 export var points_pos = 10
 export var points_neg = 5
 export var speed = 100
+var paused = false
+
 signal speed_set(value)
 
 func _ready():
@@ -31,7 +33,12 @@ func set_sauce_indicators(color1: Color, color2: Color, color3: Color, indicator
 	sauce_indicators = indicators
 	
 
+func set_paused(value):
+	paused = value
+
 func _process(delta):
+	if paused:
+		return
 	position.x += speed * delta
 	
 func _on_Dish_area_entered(area: Area2D):

@@ -4,7 +4,10 @@ onready var music_player_lvl1 = $"%MusicPlayerLvl1"
 onready var music_player_lvl2 = $"%MusicPlayerLvl2"
 onready var music_player_lvl3 = $"%MusicPlayerLvl3"
 
+onready var color_modulate = $ColorModulate
 onready var eggs = $"%Eggs"
+onready var dishes = $"%Dishes"
+onready var egg_breaker = $"%EggBreaker"
 onready var saucer = $"%Saucer"
 onready var chef = $"%Chef"
 onready var production_line = $"%ProductionLine"
@@ -26,11 +29,16 @@ var points = 0
 var mood = 4
 var max_mood = 9
 
+var paused = false
+
 func _ready():
 	set_speed(speed_levels[speed_level])
 	play_music(speed_level)
 
 func _process(delta):
+	if paused:
+		return
+		
 	time += delta
 	if time > seconds_till_speed_changes && speed_level < speed_levels.size()-1:
 		speed_level += 1
@@ -74,9 +82,18 @@ func remove_egg():
 		mood_meter.set_mood(mood)
 		set_chef_mood(mood)
 		eggs.set_eggs(eggs_count)
+		break_egg()
 	else:
 		get_tree().change_scene("res://Scenes/GameOver.tscn")
 	
+
+func break_egg():
+	egg_breaker.visible = true
+	egg_breaker.playing = true
+	color_modulate.color = Color(0.25, 0.25, 0.25, 1)
+	paused = true
+	dishes.pause_dishes()
+	production_line.set_paused(true)
 
 func play_music(lvl):
 	
@@ -96,3 +113,12 @@ func play_music(lvl):
 
 func set_speed(value: int):
 	production_line.speed = value
+
+
+func _on_EggBreaker_animation_finished():
+	egg_breaker.frame = 0
+	egg_breaker.visible = false
+	color_modulate.color = Color.white
+	paused = false
+	dishes.start_dishes()
+	production_line.set_paused(false)
