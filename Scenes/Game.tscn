@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=2]
+[gd_scene load_steps=126 format=2]
 
 [ext_resource path="res://Assets/Spritesheets/spritesheet_laufband.png" type="Texture" id=1]
 [ext_resource path="res://Music/Bossa.mp3" type="AudioStream" id=2]
@@ -23,6 +23,9 @@
 [ext_resource path="res://Assets/Spritesheets/spritesheet_egg.png" type="Texture" id=21]
 [ext_resource path="res://Scenes/Eggs.gd" type="Script" id=22]
 [ext_resource path="res://Scenes/Dishes.gd" type="Script" id=23]
+[ext_resource path="res://Scenes/ScoreBoard.gd" type="Script" id=24]
+[ext_resource path="res://Assets/Spritesheets/spritesheet_scoreholder.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Spritesheets/spritesheet_numbers.png" type="Texture" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -360,6 +363,232 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 25 )
+region = Rect2( 0, 0, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 25 )
+region = Rect2( 1181, 0, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 25 )
+region = Rect2( 2362, 0, 1181, 1181 )
+
+[sub_resource type="SpriteFrames" id=74]
+animations = [ {
+"frames": [ SubResource( 71 ), SubResource( 72 ), SubResource( 73 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 0, 0, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 590, 0, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 1180, 0, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 1770, 0, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 2360, 0, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 2950, 0, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 3540, 0, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=85]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 4130, 0, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=86]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 4720, 0, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=87]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 0, 974, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=88]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 590, 974, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=89]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 1180, 974, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=90]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 1770, 974, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=91]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 2360, 974, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=92]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 2950, 974, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=93]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 3540, 974, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=94]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 4130, 974, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=95]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 4720, 974, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=96]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 0, 1948, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=97]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 590, 1948, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=98]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 1180, 1948, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=99]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 1770, 1948, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=100]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 2360, 1948, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=101]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 2950, 1948, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=102]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 3540, 1948, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=103]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 4130, 1948, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=104]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 4720, 1948, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=105]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 0, 2922, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=106]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 590, 2922, 590, 974 )
+
+[sub_resource type="AtlasTexture" id=107]
+flags = 4
+atlas = ExtResource( 26 )
+region = Rect2( 1180, 2922, 590, 974 )
+
+[sub_resource type="SpriteFrames" id=75]
+animations = [ {
+"frames": [ SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 81 ), SubResource( 82 ), SubResource( 83 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 84 ), SubResource( 85 ), SubResource( 86 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 87 ), SubResource( 88 ), SubResource( 89 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 90 ), SubResource( 91 ), SubResource( 92 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 93 ), SubResource( 94 ), SubResource( 95 ) ],
+"loop": true,
+"name": "5",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 96 ), SubResource( 97 ), SubResource( 98 ) ],
+"loop": true,
+"name": "6",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 99 ), SubResource( 100 ), SubResource( 101 ) ],
+"loop": true,
+"name": "7",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 102 ), SubResource( 103 ), SubResource( 104 ) ],
+"loop": true,
+"name": "8",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 105 ), SubResource( 106 ), SubResource( 107 ) ],
+"loop": true,
+"name": "9",
+"speed": 5.0
+} ]
+
 [sub_resource type="AtlasTexture" id=58]
 flags = 4
 atlas = ExtResource( 21 )
@@ -424,7 +653,7 @@ position = Vector2( 4, 79 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 30 )
 animation = "neutral"
-frame = 1
+frame = 2
 playing = true
 
 [node name="MusicPlayerLvl1" type="AudioStreamPlayer" parent="."]
@@ -444,7 +673,6 @@ unique_name_in_owner = true
 position = Vector2( 961, 773 )
 frames = SubResource( 2 )
 animation = "moving"
-frame = 5
 playing = true
 script = ExtResource( 3 )
 spawn_rate = 200
@@ -465,7 +693,6 @@ __meta__ = {
 position = Vector2( -3, -62 )
 frames = SubResource( 21 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="ConsumptionArea" type="Area2D" parent="ProductionLine"]
@@ -482,6 +709,7 @@ position = Vector2( 1462, 200.688 )
 scale = Vector2( 0.347163, 0.35108 )
 frames = SubResource( 8 )
 animation = "idle"
+frame = 1
 playing = true
 script = ExtResource( 5 )
 
@@ -504,7 +732,7 @@ unique_name_in_owner = true
 position = Vector2( 1011, 131 )
 frames = SubResource( 25 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 script = ExtResource( 11 )
 
@@ -565,6 +793,40 @@ animation = "idle"
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="ScoreBoard" type="AnimatedSprite" parent="."]
+unique_name_in_owner = true
+position = Vector2( 1730, 168.5 )
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 74 )
+animation = "idle"
+script = ExtResource( 24 )
+
+[node name="Hundreds" type="AnimatedSprite" parent="ScoreBoard"]
+unique_name_in_owner = true
+position = Vector2( -223.334, -11.6665 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 75 )
+animation = "9"
+frame = 2
+playing = true
+
+[node name="Tens" type="AnimatedSprite" parent="ScoreBoard"]
+unique_name_in_owner = true
+position = Vector2( 13.333, -1.66663 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 75 )
+animation = "9"
+playing = true
+
+[node name="Ones" type="AnimatedSprite" parent="ScoreBoard"]
+unique_name_in_owner = true
+position = Vector2( 256.666, 1.66663 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 75 )
+animation = "9"
+frame = 2
+playing = true
 
 [node name="EggBreaker" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true

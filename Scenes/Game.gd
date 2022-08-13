@@ -12,6 +12,7 @@ onready var chef = $"%Chef"
 onready var production_line = $"%ProductionLine"
 onready var sauce_preview_board = $"%SaucePreviewBoard"
 onready var mood_meter = $"%MoodMeter"
+onready var score_board = $"%ScoreBoard"
 
 export var sauce_color_a: Color = Color.white
 export var sauce_color_s: Color = Color.white
@@ -33,6 +34,7 @@ var paused = false
 func _ready():
 	set_speed(speed_levels[speed_level])
 	play_music(speed_level)
+	score_board.set_score(0)
 
 func _process(delta):
 	if paused:
@@ -64,6 +66,7 @@ func _process(delta):
 		elif mood <= 0:
 			remove_egg()
 		points += out.points_gained
+		score_board.set_score(points)
 	
 
 func set_chef_mood(value):
