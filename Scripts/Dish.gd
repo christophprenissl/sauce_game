@@ -39,34 +39,42 @@ func _on_Dish_area_entered(area: Area2D):
 		queue_free()
 
 
-func add_sauce(sauce_color : Color, sauce_indicator: int) -> int:
+func add_sauce(sauce_color : Color, sauce_indicator: int):
 	var points_gained = 0
+	var added_mood = 0
+	var out = {"added_mood": 0, "points_gained": 0}
 	if !sauce1.visible:
 		if sauce_indicators[0] == sauce_indicator:
 			points_gained = points_pos
+			added_mood = 1
 		else:
-			points_gained = - points_neg
+			added_mood = -1
 		sauce1.set_modulate(sauce_color)
 		sauce1.set_visible(true)
-		return points_gained
+		out = {"points_gained": points_gained, "added_mood": added_mood}
+		return out
 	
 	if !sauce2.visible:
 		if sauce_indicators[1] == sauce_indicator:
 			points_gained = points_pos
+			added_mood = 1
 		else:
-			points_gained = - points_neg
+			added_mood = -1
 		sauce2.set_modulate(sauce_color)
 		sauce2.set_visible(true)
-		return points_gained
+		out = {"points_gained": points_gained, "added_mood": added_mood}
+		return out
 		
 	if !sauce3.visible:
 		if sauce_indicators[2] == sauce_indicator:
 			points_gained = points_pos
+			added_mood = 1
 		else:
-			points_gained = - points_neg
+			added_mood = -1
 		sauce3.set_modulate(sauce_color)
 		sauce3.set_visible(true)
-	return points_gained
+		out = {"points_gained": points_gained, "added_mood": added_mood}
+	return out
 
 
 func _on_Dish_speed_set(value):

@@ -4,9 +4,12 @@ onready var music_player_lvl1 = $"%MusicPlayerLvl1"
 onready var music_player_lvl2 = $"%MusicPlayerLvl2"
 onready var music_player_lvl3 = $"%MusicPlayerLvl3"
 
+onready var eggs = $"%Eggs"
 onready var saucer = $"%Saucer"
+onready var chef = $"%Chef"
 onready var production_line = $"%ProductionLine"
 onready var sauce_preview_board = $"%SaucePreviewBoard"
+onready var mood_meter = $"%MoodMeter"
 
 export var sauce_color_a: Color = Color.white
 export var sauce_color_s: Color = Color.white
@@ -18,8 +21,10 @@ export var seconds_till_speed_changes: int = 10
 var time = 0
 var speed_level = 0
 
+var eggs_count = 3
 var points = 0
-var angry_level = 0
+var mood = 4
+var max_mood = 9
 
 func _ready():
 	set_speed(speed_levels[speed_level])
@@ -33,17 +38,44 @@ func _process(delta):
 		set_speed(speed_levels[speed_level])
 		play_music(speed_level)
 		
-	
+	var out = {"added_mood": 0, "points_gained": 0}
 	if Input.is_action_just_pressed("sauce_a"):
-		points += saucer.sauce(sauce_color_a,0)
+		out = saucer.sauce(sauce_color_a,0)
 		sauce_preview_board.sauce("a")
 	if Input.is_action_just_pressed("sauce_s"):
-		points += saucer.sauce(sauce_color_s,1)
+		out = saucer.sauce(sauce_color_s,1)
 		sauce_preview_board.sauce("s")
 	if Input.is_action_just_pressed("sauce_d"):
-		points += saucer.sauce(sauce_color_d,2)
+		out = saucer.sauce(sauce_color_d,2)
 		sauce_preview_board.sauce("d")
-		print(points)
+		
+	if out != null:
+		if mood > 0 && mood + out.added_mood <= max_mood:
+			mood += out.added_mood
+			mood_meter.set_mood(mood)
+			set_chef_mood(mood)
+		elif mood <= 0:
+			remove_egg()
+		points += out.points_gained
+	
+
+func set_chef_mood(value):
+	if value < 3:
+		chef.set_animation("angry")
+	elif value > 7:
+		chef.set_animation("happy")
+	else:
+		chef.set_animation("neutral")
+
+func remove_egg():
+	if eggs_count > 1:
+		eggs_count -= 1
+		mood = 4
+		mood_meter.set_mood(mood)
+		set_chef_mood(mood)
+		eggs.set_eggs(eggs_count)
+	else:
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
 	
 
 func play_music(lvl):
