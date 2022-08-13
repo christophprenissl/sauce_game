@@ -4,8 +4,32 @@ onready var sauce1 = $"%Sauce1"
 onready var sauce2 = $"%Sauce2"
 onready var sauce3 = $"%Sauce3"
 
+onready var sauce_indicator1 = $"%SauceIndicator1"
+onready var sauce_indicator2 = $"%SauceIndicator2"
+onready var sauce_indicator3 = $"%SauceIndicator3"
+
+var colora: Color = Color.white
+var colors: Color = Color.white
+var colord: Color = Color.white
+
+var sauce_indicators = [-1,-1,-1]
+
+export var points_pos = 10
+export var points_neg = 5
 export var speed = 100
 signal speed_set(value)
+
+func _ready():
+	sauce_indicator1.color = colora
+	sauce_indicator2.color = colors
+	sauce_indicator3.color = colord
+
+func set_sauce_indicators(color1: Color, color2: Color, color3: Color, indicators):
+	colora = color1
+	colors = color2
+	colord = color3
+	sauce_indicators = indicators
+	
 
 func _process(delta):
 	position.x += speed * delta
@@ -15,20 +39,34 @@ func _on_Dish_area_entered(area: Area2D):
 		queue_free()
 
 
-func add_sauce(sauce_color : Color):
+func add_sauce(sauce_color : Color, sauce_indicator: int) -> int:
+	var points_gained = 0
 	if !sauce1.visible:
+		if sauce_indicators[0] == sauce_indicator:
+			points_gained = points_pos
+		else:
+			points_gained = - points_neg
 		sauce1.set_modulate(sauce_color)
 		sauce1.set_visible(true)
-		return
+		return points_gained
 	
 	if !sauce2.visible:
+		if sauce_indicators[1] == sauce_indicator:
+			points_gained = points_pos
+		else:
+			points_gained = - points_neg
 		sauce2.set_modulate(sauce_color)
 		sauce2.set_visible(true)
-		return
+		return points_gained
 		
 	if !sauce3.visible:
+		if sauce_indicators[2] == sauce_indicator:
+			points_gained = points_pos
+		else:
+			points_gained = - points_neg
 		sauce3.set_modulate(sauce_color)
 		sauce3.set_visible(true)
+	return points_gained
 
 
 func _on_Dish_speed_set(value):

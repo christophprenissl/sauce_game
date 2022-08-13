@@ -14,6 +14,21 @@ func _process(delta):
 	if rand_num == 0 && production_area.get_overlapping_areas().size() == 0:
 		var production_pos = production_area.global_position
 		var dish_instance = dish.instance()
+		
+		var rand_type = randi() % 3
+		var indicators = [-1,-1,-1]
+		match(rand_type):
+			0:
+				indicators[0] = 0
+				dish_instance.set_sauce_indicators(game.sauce_color_a, Color(0), Color(0), indicators)
+			1:
+				indicators[0] = 1
+				dish_instance.set_sauce_indicators(game.sauce_color_s, Color(0), Color(0), indicators)
+			2:
+				indicators[0] = 2
+				dish_instance.set_sauce_indicators(game.sauce_color_d, Color(0), Color(0), indicators)
+				
+		
 		dish_instance.speed = speed
 		game.add_child(dish_instance)
 		dish_instance.global_position = production_pos

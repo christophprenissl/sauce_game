@@ -62,7 +62,7 @@ speed = 120
 position = Vector2( 0, -500 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
@@ -76,6 +76,7 @@ modulate = Color( 0.933333, 0.34902, 0.34902, 1 )
 position = Vector2( 0, -500 )
 frames = SubResource( 6 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Sauce2" type="AnimatedSprite" parent="."]
@@ -85,7 +86,6 @@ modulate = Color( 0.933333, 0.34902, 0.34902, 1 )
 position = Vector2( 5, -545 )
 frames = SubResource( 6 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="Sauce3" type="AnimatedSprite" parent="."]
@@ -95,8 +95,27 @@ modulate = Color( 0.933333, 0.34902, 0.34902, 1 )
 position = Vector2( -10, -590 )
 frames = SubResource( 6 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
+
+[node name="SauceIndicator1" type="ColorRect" parent="."]
+unique_name_in_owner = true
+margin_top = 140.0
+margin_right = 210.0
+margin_bottom = 370.0
+
+[node name="SauceIndicator2" type="ColorRect" parent="."]
+unique_name_in_owner = true
+margin_left = 5.0
+margin_top = 430.0
+margin_right = 215.0
+margin_bottom = 660.0
+
+[node name="SauceIndicator3" type="ColorRect" parent="."]
+unique_name_in_owner = true
+margin_top = 740.0
+margin_right = 210.0
+margin_bottom = 970.0
 
 [connection signal="area_entered" from="." to="." method="_on_Dish_area_entered"]
 [connection signal="speed_set" from="." to="." method="_on_Dish_speed_set"]

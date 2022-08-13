@@ -18,6 +18,9 @@ export var seconds_till_speed_changes: int = 10
 var time = 0
 var speed_level = 0
 
+var points = 0
+var angry_level = 0
+
 func _ready():
 	set_speed(speed_levels[speed_level])
 	play_music(speed_level)
@@ -32,14 +35,15 @@ func _process(delta):
 		
 	
 	if Input.is_action_just_pressed("sauce_a"):
-		saucer.sauce(sauce_color_a)
+		points += saucer.sauce(sauce_color_a,0)
 		sauce_preview_board.sauce("a")
 	if Input.is_action_just_pressed("sauce_s"):
-		saucer.sauce(sauce_color_s)
+		points += saucer.sauce(sauce_color_s,1)
 		sauce_preview_board.sauce("s")
 	if Input.is_action_just_pressed("sauce_d"):
-		saucer.sauce(sauce_color_d)
+		points += saucer.sauce(sauce_color_d,2)
 		sauce_preview_board.sauce("d")
+		print(points)
 	
 
 func play_music(lvl):
