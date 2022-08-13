@@ -1,18 +1,17 @@
 extends Node2D
 
 onready var saucer = $"%Saucer"
+onready var production_line = $"%ProductionLine"
+
+export var sauce_color_a: Color = Color.white
+export var sauce_color_s: Color = Color.white
+export var sauce_color_d: Color = Color.white
 
 func _process(delta):
-	var a_pressed = false
-	var s_pressed = false
-	var d_pressed = false
+	if Input.is_action_just_pressed("sauce_a"):
+		saucer.sauce(sauce_color_a)
+	if Input.is_action_just_pressed("sauce_s"):
+		saucer.sauce(sauce_color_s)
+	if Input.is_action_just_pressed("sauce_d"):
+		saucer.sauce(sauce_color_d)
 	
-	if Input.is_action_pressed("sauce_a"):
-		a_pressed = true
-	if Input.is_action_pressed("sauce_s"):
-		s_pressed = true
-	if Input.is_action_pressed("sauce_d"):
-		d_pressed = true
-	
-	if a_pressed || s_pressed || d_pressed:
-		saucer.sauce()
