@@ -6,9 +6,9 @@ onready var music_player_lvl3 = $"%MusicPlayerLvl3"
 
 onready var eggs = $"%Eggs"
 onready var dishes = $"%Dishes"
-onready var egg_breaker = $"%EggBreaker"
 onready var saucer = $"%Saucer"
 onready var chef = $"%Chef"
+onready var chef_kills = $"%ChefKills"
 onready var production_line = $"%ProductionLine"
 onready var sauce_preview_board = $"%SaucePreviewBoard"
 onready var mood_meter = $"%MoodMeter"
@@ -80,26 +80,19 @@ func set_chef_mood(value):
 		chef.set_animation("neutral")
 
 func remove_egg():
-	if eggs_count > 1:
-		eggs_count -= 1
-		mood = 4
-		mood_meter.set_mood(mood)
-		set_chef_mood(mood)
-		eggs.set_eggs(eggs_count)
-		break_egg()
-	else:
-		get_tree().change_scene("res://Scenes/GameOver.tscn")
+	eggs_count -= 1
+	eggs.set_eggs(eggs_count)
+	break_egg()
 	
 
 func break_egg():
-	egg_breaker.visible = true
-	egg_breaker.playing = true
+	chef_kills.visible = true
+	chef_kills.play("break")
 	paused = true
 	dishes.pause_dishes()
 	production_line.set_paused(true)
 
 func play_music(lvl):
-	
 	match(lvl):
 		0:
 			music_player_lvl1.play()
@@ -119,15 +112,23 @@ func set_speed(value: int):
 	emit_signal("speed_set", value)
 
 
-func _on_EggBreaker_animation_finished():
-	egg_breaker.frame = 0
-	egg_breaker.visible = false
-	paused = false
-	dishes.start_dishes()
-	production_line.set_paused(false)
-
 func _on_without_sauce_served():
 	mood -= 1
 	mood_meter.set_mood(mood)
 	set_chef_mood(mood)
 
+
+
+func _on_ChefKills_animation_finished():
+	chef_kills.set_frame(0)
+	chef_kills.visible = false
+	chef.play("neutral")
+	paused = false
+	dishes.start_dishes()
+	production_line.set_paused(false)
+	if eggs_count <= 0:
+		get_tree().change_scene("res://Scenes/GameOverScreen.tscn")
+	else:
+		mood = 4
+		mood_meter.set_mood(mood)
+		set_chef_mood(mood)

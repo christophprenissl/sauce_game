@@ -43,7 +43,7 @@ position = Vector2( 417, 187 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 4 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [connection signal="pressed" from="RetryButton" to="." method="_on_StartButton_pressed"]
