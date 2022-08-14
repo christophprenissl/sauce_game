@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/StartScreen.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/LoadScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Spritesheets/spritesheet_start.png" type="Texture" id=2]
+[ext_resource path="res://Assets/bg/bg_start.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -31,18 +32,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
-[node name="StartButton" type="TextureButton" parent="."]
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 955, 543 )
+texture = ExtResource( 3 )
+
+[node name="Button" type="TextureButton" parent="."]
 unique_name_in_owner = true
 margin_left = 554.0
 margin_top = 442.0
 margin_right = 1399.0
 margin_bottom = 801.0
 
-[node name="StartSprite" type="AnimatedSprite" parent="StartButton"]
+[node name="Sprite" type="AnimatedSprite" parent="Button"]
 position = Vector2( 417, 187 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 4 )
 animation = "idle"
 playing = true
 
-[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_StartButton_pressed"]

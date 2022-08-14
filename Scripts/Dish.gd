@@ -12,7 +12,7 @@ onready var sauce_indicator3 = $"%SauceIndicator3"
 var dish_type = 0
 var sauce_indicators = [-1,-1,-1]
 
-export var points_pos = 10
+export var points_pos = 1
 export var speed = 100
 var paused = false
 
