@@ -748,7 +748,7 @@ unique_name_in_owner = true
 position = Vector2( 961, 773 )
 frames = SubResource( 2 )
 animation = "moving"
-frame = 4
+frame = 5
 playing = true
 flip_v = true
 script = ExtResource( 3 )
@@ -770,7 +770,7 @@ __meta__ = {
 position = Vector2( -3, -62 )
 frames = SubResource( 21 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="ConsumptionArea" type="Area2D" parent="ProductionLine"]
@@ -798,6 +798,7 @@ unique_name_in_owner = true
 position = Vector2( 281.75, 305.1 )
 frames = SubResource( 30 )
 animation = "neutral"
+frame = 1
 playing = true
 
 [node name="Saucer" type="AnimatedSprite" parent="."]
@@ -806,7 +807,7 @@ position = Vector2( 1462, 200.688 )
 scale = Vector2( 0.347163, 0.35108 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 script = ExtResource( 5 )
 
@@ -830,29 +831,38 @@ animation = "splush_d"
 
 [node name="SaucePreviewBoard" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
-position = Vector2( 1011, 131 )
+position = Vector2( 935, 158 )
 frames = SubResource( 25 )
 animation = "idle"
-frame = 1
 playing = true
 script = ExtResource( 11 )
 
 [node name="Sauce_Preview_A" parent="SaucePreviewBoard" instance=ExtResource( 10 )]
 modulate = Color( 1, 1, 1, 1 )
 position = Vector2( -188, -6 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sauce_Preview_S" parent="SaucePreviewBoard" instance=ExtResource( 12 )]
 modulate = Color( 1, 1, 1, 1 )
 position = Vector2( 3, -1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sauce_Preview_D" parent="SaucePreviewBoard" instance=ExtResource( 13 )]
 position = Vector2( 207, -4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MoodMeter" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
 position = Vector2( 714, 983 )
 frames = SubResource( 40 )
 animation = "neutral"
+frame = 1
 playing = true
 script = ExtResource( 19 )
 
@@ -861,7 +871,7 @@ unique_name_in_owner = true
 position = Vector2( -600, 0 )
 frames = SubResource( 41 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -869,11 +879,27 @@ __meta__ = {
 
 [node name="Eggs" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2( 1548, 976 )
+position = Vector2( 1532, 979 )
 scale = Vector2( 1.2, 1.2 )
 script = ExtResource( 22 )
 
-[node name="Egg1" type="AnimatedSprite" parent="Eggs"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Eggs"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Egg1" type="AnimatedSprite" parent="Eggs/HBoxContainer"]
+position = Vector2( -20, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 57 )
+animation = "whole"
+frame = 2
+playing = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Egg2" type="AnimatedSprite" parent="Eggs/HBoxContainer"]
+position = Vector2( 100, 0 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 57 )
 animation = "whole"
@@ -883,22 +909,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Egg2" type="AnimatedSprite" parent="Eggs"]
-position = Vector2( 75, 2 )
+[node name="Egg3" type="AnimatedSprite" parent="Eggs/HBoxContainer"]
+position = Vector2( 220, 0 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 57 )
 animation = "whole"
-playing = true
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Egg3" type="AnimatedSprite" parent="Eggs"]
-position = Vector2( 155, 4 )
-scale = Vector2( 0.1, 0.1 )
-frames = SubResource( 57 )
-animation = "whole"
-frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -910,7 +925,6 @@ position = Vector2( 1730, 168.5 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 74 )
 animation = "idle"
-frame = 2
 playing = true
 script = ExtResource( 24 )
 
@@ -920,7 +934,7 @@ position = Vector2( -223.334, -11.6665 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 75 )
 animation = "0"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Tens" type="AnimatedSprite" parent="ScoreBoard"]
@@ -929,7 +943,7 @@ position = Vector2( 13.333, -1.66663 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 75 )
 animation = "0"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Ones" type="AnimatedSprite" parent="ScoreBoard"]
@@ -938,6 +952,7 @@ position = Vector2( 256.666, 1.66663 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 75 )
 animation = "0"
+frame = 1
 playing = true
 
 [node name="ChefKills" type="AnimatedSprite" parent="."]

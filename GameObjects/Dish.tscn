@@ -293,6 +293,7 @@ unique_name_in_owner = true
 position = Vector2( 0, -500 )
 frames = SubResource( 1 )
 animation = "burger"
+frame = 1
 playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
@@ -305,6 +306,7 @@ visible = false
 position = Vector2( 5, -515 )
 frames = SubResource( 6 )
 animation = "burger_a"
+frame = 1
 playing = true
 
 [node name="Sauce2" type="AnimatedSprite" parent="."]
@@ -313,7 +315,6 @@ visible = false
 position = Vector2( 5, -545 )
 frames = SubResource( 6 )
 animation = "fries_d"
-frame = 2
 playing = true
 
 [node name="Sauce3" type="AnimatedSprite" parent="."]
@@ -322,7 +323,6 @@ visible = false
 position = Vector2( -10, -590 )
 frames = SubResource( 6 )
 animation = "fries_d"
-frame = 2
 playing = true
 
 [node name="SauceIndicator1" type="AnimatedSprite" parent="."]

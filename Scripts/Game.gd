@@ -72,6 +72,7 @@ func _process(delta):
 			remove_egg()
 		points += out.points_gained * mood_multiplier * (speed_level+1)
 		score_board.set_score(points)
+		Global.player_score = points
 	
 
 func set_chef_mood(value):

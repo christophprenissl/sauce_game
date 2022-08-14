@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var egg1 = $Egg1
-onready var egg2 = $Egg2
-onready var egg3 = $Egg3
+onready var egg1 = $HBoxContainer/Egg1
+onready var egg2 = $HBoxContainer/Egg2
+onready var egg3 = $HBoxContainer/Egg3
 
 
 func set_eggs(value):
