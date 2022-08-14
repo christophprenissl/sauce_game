@@ -69,12 +69,12 @@ region = Rect2( 0, 890, 1843, 178 )
 [sub_resource type="AtlasTexture" id=158]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 356, 1843, 178 )
+region = Rect2( 0, 1068, 1843, 178 )
 
 [sub_resource type="AtlasTexture" id=159]
 flags = 4
 atlas = ExtResource( 1 )
-region = Rect2( 0, 534, 1843, 178 )
+region = Rect2( 0, 1246, 1843, 178 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -750,6 +750,7 @@ frames = SubResource( 2 )
 animation = "moving"
 frame = 5
 playing = true
+flip_v = true
 script = ExtResource( 3 )
 spawn_rate = 200
 
@@ -769,7 +770,6 @@ __meta__ = {
 position = Vector2( -3, -62 )
 frames = SubResource( 21 )
 animation = "idle"
-frame = 2
 playing = true
 
 [node name="ConsumptionArea" type="Area2D" parent="ProductionLine"]
@@ -833,7 +833,7 @@ unique_name_in_owner = true
 position = Vector2( 1011, 131 )
 frames = SubResource( 25 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 script = ExtResource( 11 )
 
@@ -954,6 +954,7 @@ margin_left = -1335.0
 margin_top = -779.0
 margin_right = 1276.0
 margin_bottom = 725.0
+color = Color( 0, 0, 0, 0.72549 )
 __meta__ = {
 "_edit_lock_": true
 }
