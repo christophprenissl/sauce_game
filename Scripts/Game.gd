@@ -86,7 +86,10 @@ func set_chef_mood(value):
 func remove_egg():
 	eggs_count -= 1
 	eggs.set_eggs(eggs_count)
-	break_egg()
+	if eggs_count >= 0:
+		break_egg();
+	else:
+		get_tree().change_scene("res://Scenes/GameOverScreen.tscn")
 	
 
 func break_egg():
@@ -131,9 +134,6 @@ func _on_ChefKills_animation_finished():
 	paused = false
 	dishes.start_dishes()
 	production_line.set_paused(false)
-	if eggs_count <= 0:
-		get_tree().change_scene("res://Scenes/GameOverScreen.tscn")
-	else:
-		mood = 4
-		mood_meter.set_mood(mood)
-		set_chef_mood(mood)
+	mood = 4
+	mood_meter.set_mood(mood)
+	set_chef_mood(mood)

@@ -271,7 +271,6 @@ position = Vector2( 953, 320 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 108 )
 animation = "idle"
-frame = 1
 playing = true
 script = ExtResource( 4 )
 
@@ -281,6 +280,7 @@ position = Vector2( -223.334, -11.6665 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 109 )
 animation = "0"
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -292,6 +292,7 @@ position = Vector2( 13.333, -1.66663 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 109 )
 animation = "0"
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -303,7 +304,7 @@ position = Vector2( 256.666, 1.66663 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 109 )
 animation = "0"
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -321,6 +322,7 @@ position = Vector2( 393, 228 )
 scale = Vector2( 0.882821, 0.990278 )
 frames = SubResource( 4 )
 animation = "idle"
+frame = 2
 playing = true
 
 [connection signal="pressed" from="Button" to="." method="_on_StartButton_pressed"]
