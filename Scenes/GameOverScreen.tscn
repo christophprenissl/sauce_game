@@ -7,29 +7,6 @@
 [ext_resource path="res://Assets/Spritesheets/spritesheet_scoreholder.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Spritesheets/spritesheet_numbers.png" type="Texture" id=6]
 
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 1106, 432 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 432, 1106, 432 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 864, 1106, 432 )
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-} ]
-
 [sub_resource type="AtlasTexture" id=71]
 flags = 4
 atlas = ExtResource( 5 )
@@ -256,6 +233,29 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 1106, 432 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 432, 1106, 432 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 864, 1106, 432 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
 [node name="GameOverScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -265,27 +265,13 @@ script = ExtResource( 1 )
 position = Vector2( 955, 546 )
 texture = ExtResource( 3 )
 
-[node name="Button" type="TextureButton" parent="."]
-unique_name_in_owner = true
-margin_left = 554.0
-margin_top = 442.0
-margin_right = 1399.0
-margin_bottom = 801.0
-
-[node name="Sprite" type="AnimatedSprite" parent="Button"]
-position = Vector2( 409, 379 )
-scale = Vector2( 0.8, 0.8 )
-frames = SubResource( 4 )
-animation = "idle"
-frame = 2
-playing = true
-
 [node name="ScoreBoard" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
 position = Vector2( 953, 320 )
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 108 )
 animation = "idle"
+frame = 2
 playing = true
 script = ExtResource( 4 )
 
@@ -295,7 +281,7 @@ position = Vector2( -223.334, -11.6665 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 109 )
 animation = "0"
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -307,7 +293,7 @@ position = Vector2( 13.333, -1.66663 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 109 )
 animation = "0"
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -319,10 +305,24 @@ position = Vector2( 256.666, 1.66663 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 109 )
 animation = "0"
-frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Button" type="TextureButton" parent="."]
+unique_name_in_owner = true
+margin_left = 554.0
+margin_top = 442.0
+margin_right = 1399.0
+margin_bottom = 801.0
+
+[node name="Sprite" type="AnimatedSprite" parent="Button"]
+position = Vector2( 393, 228 )
+scale = Vector2( 0.882821, 0.990278 )
+frames = SubResource( 4 )
+animation = "idle"
+frame = 1
+playing = true
 
 [connection signal="pressed" from="Button" to="." method="_on_StartButton_pressed"]
