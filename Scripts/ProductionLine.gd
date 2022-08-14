@@ -3,7 +3,8 @@ extends AnimatedSprite
 export var spawn_rate = 0
 
 var speed = 0
-
+var startDelayInSecs = 10
+var time = 0
 onready var game = $".."
 onready var dishes = $"%Dishes"
 onready var dish = load("res://GameObjects/Dish.tscn")
@@ -12,6 +13,9 @@ onready var production_area = $"ProductionArea"
 var paused = false
 
 func _process(delta):
+	time += delta
+	if time < startDelayInSecs:
+		return
 	if paused:
 		return
 		

@@ -723,7 +723,7 @@ sauce_color_s = Color( 0.921569, 0.917647, 0.882353, 1 )
 sauce_color_d = Color( 0.956863, 0.662745, 0.027451, 1 )
 speed_levels = [ 800, 1200, 1500 ]
 spawn_rates = [ 100, 80, 40 ]
-seconds_till_speed_changes = 40
+seconds_till_speed_changes = 50
 mood_multiplier = 2
 
 [node name="Background" type="AnimatedSprite" parent="."]
@@ -749,7 +749,7 @@ unique_name_in_owner = true
 position = Vector2( 961, 773 )
 frames = SubResource( 2 )
 animation = "moving"
-frame = 7
+frame = 5
 playing = true
 flip_v = true
 script = ExtResource( 3 )
@@ -771,7 +771,7 @@ __meta__ = {
 position = Vector2( -3, -62 )
 frames = SubResource( 21 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="ConsumptionArea" type="Area2D" parent="ProductionLine"]
@@ -835,7 +835,6 @@ unique_name_in_owner = true
 position = Vector2( 935, 158 )
 frames = SubResource( 25 )
 animation = "idle"
-frame = 1
 playing = true
 script = ExtResource( 11 )
 

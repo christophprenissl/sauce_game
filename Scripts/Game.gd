@@ -46,7 +46,12 @@ func _process(delta):
 		return
 		
 	time += delta
-	if time > seconds_till_speed_changes && speed_level < speed_levels.size()-1:
+	if speed_level == 0 && time > seconds_till_speed_changes +10:
+		speed_level += 1
+		time = 0
+		set_speed(speed_levels[speed_level], spawn_rates[0])
+		play_music(speed_level)
+	elif time > seconds_till_speed_changes 	&& speed_level < speed_levels.size()-1 && speed_level != 0:
 		speed_level += 1
 		time = 0
 		set_speed(speed_levels[speed_level], spawn_rates[0])
