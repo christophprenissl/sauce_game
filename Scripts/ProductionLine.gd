@@ -1,7 +1,8 @@
 extends AnimatedSprite
 
 export var spawn_rate = 100
-export var speed = 100
+
+var speed = 0
 
 onready var game = $".."
 onready var dishes = $"%Dishes"

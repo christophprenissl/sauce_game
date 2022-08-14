@@ -101,6 +101,7 @@ sauce_d={
 2d_physics/layer_2="end_of_line"
 2d_physics/layer_3="start_of_line"
 2d_physics/layer_4="saucer"
+2d_physics/layer_5="line"
 
 [physics]
 
