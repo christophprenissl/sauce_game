@@ -31,14 +31,22 @@ func _ready():
 	match(dish_type):
 		0:
 			base.play("fries")
-			sauce1.play("fries")
-			sauce2.play("fries")
-			sauce3.play("fries")
+			match(sauce_indicators[0]):
+				0:
+					sauce1.play("fries_a")
+				1:
+					sauce1.play("fries_s")
+				2:
+					sauce1.play("fries_d")
 		1:
 			base.play("burger")
-			sauce1.play("burger")
-			sauce2.play("burger")
-			sauce3.play("burger")
+			match(sauce_indicators[0]):
+				0:
+					sauce1.play("burger_a")
+				1:
+					sauce1.play("burger_s")
+				2:
+					sauce1.play("burger_d")
 
 func set_sauce_indicators(indicators):
 	sauce_indicators = indicators
@@ -67,6 +75,23 @@ func add_sauce(sauce_indicator: int):
 	var points_gained = 0
 	var added_mood = 0
 	var out = {"added_mood": 0, "points_gained": 0}
+	
+	var animation = ""
+	match(dish_type):
+		0:
+			animation = "fries_"
+		1:
+			animation = "burger_"
+	
+	match (sauce_indicator):
+		0:
+			animation += "a"
+		1:
+			animation += "s"
+		2:
+			animation += "d"
+			
+	
 	if !sauce1.visible:
 		if sauce_indicators[0] == sauce_indicator:
 			points_gained = points_pos
@@ -74,6 +99,7 @@ func add_sauce(sauce_indicator: int):
 		else:
 			added_mood = -2
 		sauce1.set_visible(true)
+		sauce1.play(animation)
 		out = {"points_gained": points_gained, "added_mood": added_mood}
 		return out
 	
@@ -84,6 +110,7 @@ func add_sauce(sauce_indicator: int):
 		else:
 			added_mood = -1
 		sauce2.set_visible(true)
+		sauce2.play(animation)
 		out = {"points_gained": points_gained, "added_mood": added_mood}
 		return out
 		
@@ -94,6 +121,7 @@ func add_sauce(sauce_indicator: int):
 		else:
 			added_mood = -1
 		sauce3.set_visible(true)
+		sauce3.play(animation)
 		out = {"points_gained": points_gained, "added_mood": added_mood}
 	return out
 

@@ -1,7 +1,7 @@
 extends AnimatedSprite
 
 onready var ray_cast = $RayCast
-onready var splush = $Splush
+onready var _splush = $Splush
 
 func sauce(sauce_indicator: int):
 	var out = {"points_gained": 0, "added_mood": 0}
@@ -23,20 +23,20 @@ func sauce(sauce_indicator: int):
 	
 
 func splush(position, color_indicator):
-	splush.global_position = position
-	splush.visible = true
-	splush.set_frame(0)
+	_splush.global_position = position
+	_splush.visible = true
+	_splush.set_frame(0)
 	match(color_indicator):
 		0:
-			splush.play("splush_a")
+			_splush.play("splush_a")
 		1:
-			splush.play("splush_s")
+			_splush.play("splush_s")
 		2:
-			splush.play("splush_d")
+			_splush.play("splush_d")
 
 func _on_Saucer_animation_finished():
 	set_animation("idle")
 
 
 func _on_Splush_animation_finished():
-	splush.visible = false
+	_splush.visible = false
