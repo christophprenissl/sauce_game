@@ -1,23 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/Spritesheets/spritesheet_burger.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Dish.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Spritesheets/spritesheet_pommes.png" type="Texture" id=3]
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 1191, 1181 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 1191, 0, 1191, 1181 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 2382, 0, 1191, 1181 )
+[ext_resource path="res://Assets/Spritesheets/spritesheet_letters.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -36,7 +22,7 @@ region = Rect2( 2362, 0, 1181, 1181 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"frames": [  ],
 "loop": true,
 "name": "burger",
 "speed": 5.0
@@ -93,9 +79,117 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 1181, 0, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 2362, 0, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 3543, 0, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 4724, 0, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 5905, 0, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 2362, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 1181, 2362, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 2362, 2362, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 3543, 2362, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 4724, 2362, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 5905, 2362, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 1181, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 1181, 1181, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 2362, 1181, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 3543, 1181, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 4724, 1181, 1181, 1181 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 5905, 1181, 1181, 1181 )
+
+[sub_resource type="SpriteFrames" id=37]
+animations = [ {
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "a",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "d",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"loop": true,
+"name": "s",
+"speed": 5.0
+} ]
+
 [node name="Dish" type="Area2D"]
 scale = Vector2( 0.2, 0.2 )
-collision_mask = 2
+collision_mask = 7
 script = ExtResource( 2 )
 speed = 120
 
@@ -140,23 +234,25 @@ animation = "fries"
 frame = 2
 playing = true
 
-[node name="SauceIndicator1" type="ColorRect" parent="."]
+[node name="SauceIndicator1" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
-margin_top = 140.0
-margin_right = 210.0
-margin_bottom = 370.0
+position = Vector2( 5, 200 )
+scale = Vector2( 0.35, 0.35 )
+frames = SubResource( 37 )
+animation = "a"
 
-[node name="SauceIndicator2" type="ColorRect" parent="."]
+[node name="SauceIndicator2" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
-margin_left = 5.0
-margin_top = 430.0
-margin_right = 215.0
-margin_bottom = 660.0
+position = Vector2( 0, 600 )
+scale = Vector2( 0.35, 0.35 )
+frames = SubResource( 37 )
+animation = "a"
 
-[node name="SauceIndicator3" type="ColorRect" parent="."]
+[node name="SauceIndicator3" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
-margin_top = 740.0
-margin_right = 210.0
-margin_bottom = 970.0
+position = Vector2( 15, 1015 )
+scale = Vector2( 0.35, 0.35 )
+frames = SubResource( 37 )
+animation = "a"
 
 [connection signal="area_entered" from="." to="." method="_on_Dish_area_entered"]

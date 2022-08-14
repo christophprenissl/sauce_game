@@ -1,6 +1,6 @@
 extends AnimatedSprite
 
-export var spawn_rate = 100
+export var spawn_rate = 0
 
 var speed = 0
 
@@ -33,13 +33,13 @@ func _process(delta):
 		match(rand_type):
 			0:
 				indicators[0] = 0
-				dish_instance.set_sauce_indicators(game.sauce_color_a, Color(0), Color(0), indicators)
+				dish_instance.set_sauce_indicators(indicators)
 			1:
 				indicators[0] = 1
-				dish_instance.set_sauce_indicators(game.sauce_color_s, Color(0), Color(0), indicators)
+				dish_instance.set_sauce_indicators(indicators)
 			2:
 				indicators[0] = 2
-				dish_instance.set_sauce_indicators(game.sauce_color_d, Color(0), Color(0), indicators)
+				dish_instance.set_sauce_indicators(indicators)
 				
 		
 		dish_instance.speed = speed

@@ -19,7 +19,9 @@ export var sauce_color_s: Color = Color.white
 export var sauce_color_d: Color = Color.white
 
 export (Array, int) var speed_levels
+export (Array, int) var spawn_rates
 export var seconds_till_speed_changes: int = 10
+export var mood_multiplier = 1
 
 signal speed_set(value)
 
@@ -31,10 +33,11 @@ var points = 0
 var mood = 4
 var max_mood = 9
 
+
 var paused = false
 
 func _ready():
-	set_speed(speed_levels[speed_level])
+	set_speed(speed_levels[speed_level], spawn_rates[0])
 	play_music(speed_level)
 	score_board.set_score(0)
 
@@ -46,7 +49,7 @@ func _process(delta):
 	if time > seconds_till_speed_changes && speed_level < speed_levels.size()-1:
 		speed_level += 1
 		time = 0
-		set_speed(speed_levels[speed_level])
+		set_speed(speed_levels[speed_level], spawn_rates[0])
 		play_music(speed_level)
 		
 	var out = {"added_mood": 0, "points_gained": 0}
@@ -67,7 +70,7 @@ func _process(delta):
 			set_chef_mood(mood)
 		elif mood <= 0:
 			remove_egg()
-		points += out.points_gained
+		points += out.points_gained * mood_multiplier * (speed_level+1)
 		score_board.set_score(points)
 	
 
@@ -107,8 +110,9 @@ func play_music(lvl):
 			music_player_lvl1.stop()
 			music_player_lvl2.stop()
 
-func set_speed(value: int):
+func set_speed(value: int, spawn_rate: int):
 	production_line.speed = value
+	production_line.spawn_rate = spawn_rate
 	emit_signal("speed_set", value)
 
 

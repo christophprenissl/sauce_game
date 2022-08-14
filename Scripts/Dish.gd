@@ -9,24 +9,24 @@ onready var sauce_indicator1 = $"%SauceIndicator1"
 onready var sauce_indicator2 = $"%SauceIndicator2"
 onready var sauce_indicator3 = $"%SauceIndicator3"
 
-var colora: Color = Color.white
-var colors: Color = Color.white
-var colord: Color = Color.white
-
 var dish_type = 0
 var sauce_indicators = [-1,-1,-1]
 
 export var points_pos = 10
-export var points_neg = 5
 export var speed = 100
 var paused = false
 
 signal without_sauce_served
 
 func _ready():
-	sauce_indicator1.color = colora
-	sauce_indicator2.color = colors
-	sauce_indicator3.color = colord
+	match(sauce_indicators[0]):
+		0:
+			sauce_indicator1.play("a")
+		1:
+			sauce_indicator1.play("s")
+		2: 
+			sauce_indicator3.play("d")
+	
 	match(dish_type):
 		0:
 			base.play("fries")
@@ -39,10 +39,7 @@ func _ready():
 			sauce2.play("burger")
 			sauce3.play("burger")
 
-func set_sauce_indicators(color1: Color, color2: Color, color3: Color, indicators):
-	colora = color1
-	colors = color2
-	colord = color3
+func set_sauce_indicators(indicators):
 	sauce_indicators = indicators
 	
 
@@ -58,9 +55,12 @@ func _on_Dish_area_entered(area: Area2D):
 	if area.collision_layer == 2 && !sauce1.visible:
 		emit_signal("without_sauce_served")
 		queue_free()
+	elif area.collision_layer == 1:
+		queue_free()
+		
 
 
-func add_sauce(sauce_color : Color, sauce_indicator: int):
+func add_sauce(sauce_indicator: int):
 	var points_gained = 0
 	var added_mood = 0
 	var out = {"added_mood": 0, "points_gained": 0}
@@ -69,8 +69,7 @@ func add_sauce(sauce_color : Color, sauce_indicator: int):
 			points_gained = points_pos
 			added_mood = 1
 		else:
-			added_mood = -1
-		sauce1.set_modulate(sauce_color)
+			added_mood = -2
 		sauce1.set_visible(true)
 		out = {"points_gained": points_gained, "added_mood": added_mood}
 		return out
@@ -81,7 +80,6 @@ func add_sauce(sauce_color : Color, sauce_indicator: int):
 			added_mood = 1
 		else:
 			added_mood = -1
-		sauce2.set_modulate(sauce_color)
 		sauce2.set_visible(true)
 		out = {"points_gained": points_gained, "added_mood": added_mood}
 		return out
@@ -92,7 +90,6 @@ func add_sauce(sauce_color : Color, sauce_indicator: int):
 			added_mood = 1
 		else:
 			added_mood = -1
-		sauce3.set_modulate(sauce_color)
 		sauce3.set_visible(true)
 		out = {"points_gained": points_gained, "added_mood": added_mood}
 	return out
