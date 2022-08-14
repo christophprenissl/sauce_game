@@ -19,13 +19,14 @@ var paused = false
 signal without_sauce_served
 
 func _ready():
+	sauce_indicator1.visible = true
 	match(sauce_indicators[0]):
 		0:
 			sauce_indicator1.play("a")
 		1:
 			sauce_indicator1.play("s")
 		2: 
-			sauce_indicator3.play("d")
+			sauce_indicator1.play("d")
 	
 	match(dish_type):
 		0:
@@ -54,6 +55,8 @@ func _process(delta):
 func _on_Dish_area_entered(area: Area2D):
 	if area.collision_layer == 2 && !sauce1.visible:
 		emit_signal("without_sauce_served")
+		queue_free()
+	elif area.collision_layer == 2:
 		queue_free()
 	elif area.collision_layer == 1:
 		queue_free()

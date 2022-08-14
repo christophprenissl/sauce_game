@@ -30,17 +30,8 @@ func _process(delta):
 		
 		var rand_type = randi() % 3
 		var indicators = [-1,-1,-1]
-		match(rand_type):
-			0:
-				indicators[0] = 0
-				dish_instance.set_sauce_indicators(indicators)
-			1:
-				indicators[0] = 1
-				dish_instance.set_sauce_indicators(indicators)
-			2:
-				indicators[0] = 2
-				dish_instance.set_sauce_indicators(indicators)
-				
+		indicators[0] = rand_type
+		dish_instance.set_sauce_indicators(indicators)
 		
 		dish_instance.speed = speed
 		dishes.add_child(dish_instance)

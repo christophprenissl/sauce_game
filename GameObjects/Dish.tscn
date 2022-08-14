@@ -1,9 +1,24 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Assets/Spritesheets/spritesheet_burger.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Dish.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Spritesheets/spritesheet_pommes.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Spritesheets/spritesheet_letters.png" type="Texture" id=4]
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 1191, 1181 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1191, 0, 1191, 1181 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 2382, 0, 1191, 1181 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
@@ -22,7 +37,7 @@ region = Rect2( 2362, 0, 1181, 1181 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
 "loop": true,
 "name": "burger",
 "speed": 5.0
@@ -197,7 +212,8 @@ speed = 120
 unique_name_in_owner = true
 position = Vector2( 0, -500 )
 frames = SubResource( 1 )
-animation = "fries"
+animation = "burger"
+frame = 2
 playing = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
@@ -236,6 +252,7 @@ playing = true
 
 [node name="SauceIndicator1" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2( 5, 200 )
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 37 )
@@ -243,6 +260,7 @@ animation = "a"
 
 [node name="SauceIndicator2" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2( 0, 600 )
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 37 )
@@ -250,6 +268,7 @@ animation = "a"
 
 [node name="SauceIndicator3" type="AnimatedSprite" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2( 15, 1015 )
 scale = Vector2( 0.35, 0.35 )
 frames = SubResource( 37 )

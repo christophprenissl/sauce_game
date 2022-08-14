@@ -54,13 +54,13 @@ func _process(delta):
 		
 	var out = {"added_mood": 0, "points_gained": 0}
 	if Input.is_action_just_pressed("sauce_a"):
-		out = saucer.sauce(sauce_color_a,0)
+		out = saucer.sauce(0)
 		sauce_preview_board.sauce("a")
 	if Input.is_action_just_pressed("sauce_s"):
-		out = saucer.sauce(sauce_color_s,1)
+		out = saucer.sauce(1)
 		sauce_preview_board.sauce("s")
 	if Input.is_action_just_pressed("sauce_d"):
-		out = saucer.sauce(sauce_color_d,2)
+		out = saucer.sauce(2)
 		sauce_preview_board.sauce("d")
 		
 	if out != null:
